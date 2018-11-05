@@ -5,9 +5,7 @@ import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 @Entity(tableName = "student")
 public class Student {
@@ -18,7 +16,7 @@ public class Student {
     private String nfs;
 
     @ColumnInfo(name = "date_of_birth")
-    private LocalDate dateOfBirth;
+    private Date dateOfBirth;
 
     @ColumnInfo(name = "email")
     private String email;
@@ -27,7 +25,7 @@ public class Student {
     private String number;
 
     @ColumnInfo(name = "last_changed")
-    private LocalDateTime lastChanged;
+    private Date lastChanged;
 
     public int getStudent_id() {
         return student_id;
@@ -45,11 +43,11 @@ public class Student {
         this.nfs = nfs;
     }
 
-    public LocalDate getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -69,15 +67,15 @@ public class Student {
         this.number = number;
     }
 
-    public LocalDateTime getLastChanged() {
+    public Date getLastChanged() {
         return lastChanged;
     }
 
-    public void setLastChanged(LocalDateTime lastChanged) {
+    public void setLastChanged(Date lastChanged) {
         this.lastChanged = lastChanged;
     }
 
-    public Student(int student_id, String nfs, LocalDate dateOfBirth, String email, String number, LocalDateTime lastChanged) {
+    public Student(int student_id, String nfs, Date dateOfBirth, String email, String number, Date lastChanged) {
         this.student_id = student_id;
         this.nfs = nfs;
         this.dateOfBirth = dateOfBirth;
