@@ -1,14 +1,14 @@
 package com.virliana.automatedsystem.app.presentation.students;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.virliana.automatedsystem.R;
 import com.virliana.automatedsystem.app.AppComponent;
 import com.virliana.automatedsystem.app.AutomatedSystem;
 import com.virliana.automatedsystem.app.HasDependencies;
 
-public class StudentsActivity extends Activity implements HasDependencies<StudentsComponent> {
+public class StudentsActivity extends AppCompatActivity implements HasDependencies<StudentsComponent> {
 
     private StudentsComponent studentsComponent;
 

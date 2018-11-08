@@ -1,14 +1,14 @@
 package com.virliana.automatedsystem.app.presentation.home;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.virliana.automatedsystem.R;
 import com.virliana.automatedsystem.app.AppComponent;
 import com.virliana.automatedsystem.app.AutomatedSystem;
 import com.virliana.automatedsystem.app.HasDependencies;
 
-public class HomeActivity extends Activity implements HasDependencies<HomeComponent> {
+public class HomeActivity extends AppCompatActivity implements HasDependencies<HomeComponent> {
 
     private HomeComponent homeComponent;
 

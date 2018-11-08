@@ -26,6 +26,8 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$room_version"
     implementation "com.jakewharton:butterknife:$butterKnife_version"
     implementation "android.arch.persistence.room:rxjava2:$room_version"
+    implementation 'com.github.pedrovgs:renderers:3.3.3'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
 
     testImplementation "android.arch.persistence.room:testing:$room_version"
     testImplementation 'junit:junit:4.12'
