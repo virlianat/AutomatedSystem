@@ -13,7 +13,7 @@ public class Student {
     private int student_id;
 
     @Embedded
-    private String nfs;
+    private NFS nfs;
 
     @ColumnInfo(name = "date_of_birth")
     private Date dateOfBirth;
@@ -35,11 +35,11 @@ public class Student {
         this.student_id = student_id;
     }
 
-    public String getNfs() {
+    public NFS getNfs() {
         return nfs;
     }
 
-    public void setNfs(String nfs) {
+    public void setNfs(NFS nfs) {
         this.nfs = nfs;
     }
 
@@ -75,7 +75,7 @@ public class Student {
         this.lastChanged = lastChanged;
     }
 
-    public Student(int student_id, String nfs, Date dateOfBirth, String email, String number, Date lastChanged) {
+    public Student(int student_id, NFS nfs, Date dateOfBirth, String email, String number, Date lastChanged) {
         this.student_id = student_id;
         this.nfs = nfs;
         this.dateOfBirth = dateOfBirth;

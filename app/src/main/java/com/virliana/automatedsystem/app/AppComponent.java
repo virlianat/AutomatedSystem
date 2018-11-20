@@ -10,9 +10,8 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {AppModule.class})
+@Component(modules = {AppModule.class, StorageModule.class})
 public interface AppComponent {
     HomeComponent createHomeComponent(HomeModule homeModule);
-
     StudentsComponent createStudentsComponent(StudentsModule studentsModule);
 }

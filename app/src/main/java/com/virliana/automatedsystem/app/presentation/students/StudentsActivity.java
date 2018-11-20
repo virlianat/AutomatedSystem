@@ -1,5 +1,7 @@
 package com.virliana.automatedsystem.app.presentation.students;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -12,6 +14,12 @@ public class StudentsActivity extends AppCompatActivity implements HasDependenci
 
     private StudentsComponent studentsComponent;
 
+    public static void startFrom(Activity activityFrom) {
+        final Intent intent = new Intent(activityFrom, StudentsActivity.class);
+        activityFrom.startActivity(intent);
+        activityFrom.finish();
+        activityFrom.overridePendingTransition(R.anim.fade_in_medium, R.anim.fade_out_medium);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,14 +1,14 @@
 package com.virliana.automatedsystem.app.database;
 
 import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.Ignore;
 
 public class NFS {
-    @ColumnInfo(name="first_name")
+    @ColumnInfo(name = "first_name")
     private String firstName;
-    @ColumnInfo(name="fathers_name")
+    @ColumnInfo(name = "fathers_name")
     private String fathersName;
-    @ColumnInfo(name="surname")
+    @ColumnInfo(name = "surname")
     private String surname;
 
     public String getFirstName() {
@@ -35,6 +35,7 @@ public class NFS {
         this.surname = surname;
     }
 
+    @Ignore
     public NFS(String firstName, String surname) {
         this.firstName = firstName;
         this.surname = surname;
@@ -44,5 +45,14 @@ public class NFS {
         this.firstName = firstName;
         this.fathersName = fathersName;
         this.surname = surname;
+    }
+
+    @Override
+    public String toString() {
+        if (fathersName == null) {
+            return firstName + " " + surname;
+        } else {
+            return firstName + " " + fathersName + " " + surname;
+        }
     }
 }
