@@ -13,7 +13,6 @@ public class AutomatedSystem extends Application {
                 .appModule(new AppModule(getApplicationContext()))
                 .build();
     }
-
     public static AppComponent getAppComponent() {
         return appComponent;
     }

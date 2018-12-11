@@ -1,4 +1,4 @@
-package com.virliana.automatedsystem.app.presentation.students;
+package com.virliana.automatedsystem.app.presentation.timetable;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,12 +10,14 @@ import com.virliana.automatedsystem.app.AppComponent;
 import com.virliana.automatedsystem.app.AutomatedSystem;
 import com.virliana.automatedsystem.app.HasDependencies;
 
-public class StudentsActivity extends AppCompatActivity implements HasDependencies<StudentsComponent> {
+public class TimetableActivity extends AppCompatActivity implements HasDependencies<TimetableComponent>
 
-    private StudentsComponent studentsComponent;
+{
+
+    private TimetableComponent timetableComponent;
 
     public static void startFrom(Activity activityFrom) {
-        final Intent intent = new Intent(activityFrom, StudentsActivity.class);
+        final Intent intent = new Intent(activityFrom, TimetableActivity.class);
         activityFrom.startActivity(intent);
         activityFrom.overridePendingTransition(R.anim.fade_in_medium, R.anim.fade_out_medium);
     }
@@ -25,17 +27,22 @@ public class StudentsActivity extends AppCompatActivity implements HasDependenci
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getFragmentManager().beginTransaction()
-                .replace(R.id.fl_content_place, new StudentsFragment())
+                .replace(R.id.fl_content_place, new TimetableFragment())
                 .commit();
     }
 
     @Override
-    public StudentsComponent getDependencies() {
-        if (studentsComponent == null) {
+    public TimetableComponent getDependencies() {
+        if (timetableComponent == null) {
             AutomatedSystem application = (AutomatedSystem) getApplicationContext();
             AppComponent appComponent = application.getAppComponent();
-            studentsComponent = appComponent.createStudentsComponent(new StudentsModule(this));
+            timetableComponent = appComponent.createTimetableComponent(new TimetableModule(this));
         }
-        return studentsComponent;
+        return timetableComponent;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.virliana.automatedsystem.R;
 import com.virliana.automatedsystem.app.presentation.students.StudentsActivity;
+import com.virliana.automatedsystem.app.presentation.timetable.TimetableActivity;
 
 import javax.inject.Inject;
 
@@ -24,6 +25,8 @@ public class HomeFragment extends Fragment implements HomeView {
 
     @BindView(R.id.btn_students)
     Button studentsButton;
+    @BindView(R.id.btn_timetable)
+    Button timetableButton;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,5 +57,10 @@ public class HomeFragment extends Fragment implements HomeView {
     @OnClick(R.id.btn_students)
     void onStudentsButtonClick() {
         StudentsActivity.startFrom(getActivity());
+    }
+
+    @OnClick(R.id.btn_timetable)
+    void onTimetableButtonClick() {
+        TimetableActivity.startFrom(getActivity());
     }
 }

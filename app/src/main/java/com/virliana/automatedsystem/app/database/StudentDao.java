@@ -17,10 +17,13 @@ public interface StudentDao {
     List<Student> loadAllByIds(int[] studentIds);
 
     @Insert
-    void insertAll(Student... students);
+    void insertAll(List<Student> students);
 
     @Delete
     void delete(Student student);
+
+    @Query("DELETE FROM student")
+    void deleteAll();
 
     @Insert
     void insert(Student student);

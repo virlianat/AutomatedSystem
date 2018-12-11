@@ -13,11 +13,11 @@
         <activity android:name=".app.presentation.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".app.presentation.students.StudentsActivity"></activity>
+        <activity android:name=".app.presentation.timetable.TimetableActivity"></activity>
     </application>
 
 </manifest>

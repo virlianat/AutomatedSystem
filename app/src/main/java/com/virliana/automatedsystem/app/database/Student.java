@@ -16,7 +16,7 @@ public class Student {
     private NFS nfs;
 
     @ColumnInfo(name = "date_of_birth")
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     @ColumnInfo(name = "email")
     private String email;
@@ -43,11 +43,11 @@ public class Student {
         this.nfs = nfs;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -75,7 +75,7 @@ public class Student {
         this.lastChanged = lastChanged;
     }
 
-    public Student(int student_id, NFS nfs, Date dateOfBirth, String email, String number, Date lastChanged) {
+    public Student(int student_id, NFS nfs, String dateOfBirth, String email, String number, Date lastChanged) {
         this.student_id = student_id;
         this.nfs = nfs;
         this.dateOfBirth = dateOfBirth;

@@ -1,6 +1,9 @@
 package com.virliana.automatedsystem.app.presentation.students;
 
+import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
+import android.util.Log;
 
 import com.virliana.automatedsystem.app.database.AppDatabase;
 import com.virliana.automatedsystem.app.database.NFS;
@@ -30,15 +33,25 @@ public class StudentsPresenter {
 
     }
 
-    void fillDatabase() {
+    void fillDatabase(int id, String nfs, String date, String email, String number) {
         thread = new Thread() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void run() {
                 StudentDao studentDao = database.studentDao();
-                Calendar rightNow = Calendar.getInstance();
-                rightNow.set(1998, 8, 31);
-                Student student = new Student(1, new NFS("Virliana", "Tymkiv"), rightNow.getTime(), "test@test.com", "0667844558", Calendar.getInstance().getTime());
+                String receivedEmail = email;
+                Integer receivedNumber = new Integer(number);
+                int receivedId = id;
+                if (receivedEmail == null) {
+                    receivedEmail = "unknown";
+                }
+                if (receivedNumber == null) {
+                    receivedNumber = 0000;
+                }
+                Log.i("Tag", "run: " + nfs.substring(0, nfs.indexOf(" ")) + " " + nfs.substring(nfs.indexOf(" ") + 1));
+                Student student = new Student(receivedId, new NFS(nfs.substring(0, nfs.indexOf(" ")), nfs.substring(nfs.indexOf(" ") + 1)), date, receivedEmail, receivedNumber.toString(), Calendar.getInstance().getTime());
                 studentDao.insert(student);
+                getStudentsFromDB();
             }
         };
         thread.start();
@@ -50,6 +63,7 @@ public class StudentsPresenter {
             public void run() {
                 StudentDao studentDao = database.studentDao();
                 List<Student> students = studentDao.getAll();
+                Log.i("Tag", "run: getstudentsfromdb");
                 mainHandler.post(new Runnable() {
                     @Override
                     public void run() {
